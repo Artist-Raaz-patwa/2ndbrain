@@ -2,7 +2,7 @@
 <html lang="en" class="dark">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <title>2ndBrain - Ultimate Productivity</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -33,9 +33,14 @@
     </script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400&family=Patrick+Hand&family=Crimson+Pro:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
     <style>
-      body {
+      html, body {
+        height: 100%;
+        width: 100%;
+        margin: 0;
+        padding: 0;
         background-color: #000;
         color: #fff;
+        overflow: hidden; /* Prevent body scroll, let App handle it */
       }
       /* Custom Scrollbar for Webkit */
       ::-webkit-scrollbar {
@@ -52,6 +57,10 @@
       ::-webkit-scrollbar-thumb:hover {
         background: #3f3f46; 
       }
+      /* Mobile safe area utilities */
+      .pb-safe {
+        padding-bottom: env(safe-area-inset-bottom);
+      }
     </style>
   <script type="importmap">
 {
@@ -67,5 +76,6 @@
 </head>
   <body>
     <div id="root"></div>
+    <script type="module" src="./index.tsx"></script>
   </body>
 </html>

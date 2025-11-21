@@ -14,6 +14,9 @@ const ChatInterface: React.FC = () => {
   const messages = state.chatHistory;
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
+  // Safe environment check
+  const isGeminiReady = typeof process !== 'undefined' && process.env && process.env.API_KEY;
+
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
   };
@@ -316,8 +319,6 @@ const ChatInterface: React.FC = () => {
       handleSend();
     }
   };
-
-  const isGeminiReady = !!process.env.API_KEY;
 
   if (!state.userProfile.isLoggedIn) return null;
 

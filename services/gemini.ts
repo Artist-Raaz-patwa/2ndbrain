@@ -247,7 +247,8 @@ export class GeminiService {
     bankContext: string = "" // New context for bank info
   ): Promise<string> {
     
-    const apiKey = process.env.API_KEY;
+    // Safe check for API Key
+    const apiKey = typeof process !== 'undefined' ? process.env.API_KEY : undefined;
     if (!apiKey) throw new Error("API Key not found.");
 
     // Clean history
