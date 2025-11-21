@@ -1,4 +1,5 @@
 
+
 import React, { useState, useRef, useEffect } from 'react';
 import { ICONS } from '../constants';
 import { Message, TaskStatus, BankAccountType } from '../types';
@@ -15,7 +16,7 @@ const ChatInterface: React.FC = () => {
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
   // Safe environment check
-  const isGeminiReady = typeof process !== 'undefined' && process.env && process.env.API_KEY;
+  const isGeminiReady = (typeof process !== 'undefined' && process.env) ? !!process.env.API_KEY : false;
 
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });

@@ -1,4 +1,5 @@
 
+
 import { GoogleGenAI, FunctionDeclaration, Type, Tool, GenerateContentResponse } from "@google/genai";
 
 // --- CREATE Tools ---
@@ -248,7 +249,7 @@ export class GeminiService {
   ): Promise<string> {
     
     // Safe check for API Key
-    const apiKey = typeof process !== 'undefined' ? process.env.API_KEY : undefined;
+    const apiKey = (typeof process !== 'undefined' && process.env) ? process.env.API_KEY : undefined;
     if (!apiKey) throw new Error("API Key not found.");
 
     // Clean history

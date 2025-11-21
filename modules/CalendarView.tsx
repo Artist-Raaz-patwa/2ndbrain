@@ -1,5 +1,6 @@
 
 
+
 import React, { useState, useMemo } from 'react';
 import { useStore } from '../contexts/StoreContext';
 import { AreaChart, Area, XAxis, YAxis, Tooltip, ResponsiveContainer } from 'recharts';
@@ -240,7 +241,7 @@ const CalendarView: React.FC = () => {
                               onClick={() => setSelectedDay(item.date)}
                               className={`relative group rounded-md md:rounded-lg cursor-pointer border border-zinc-800/50 transition-all duration-300 hover:scale-105 hover:shadow-xl hover:z-10
                                   ${isToday ? 'ring-1 md:ring-2 ring-white ring-offset-1 md:ring-offset-2 ring-offset-black' : ''}
-                                  aspect-square md:aspect-auto min-h-[40px] md:min-h-0
+                                  min-h-[60px] md:min-h-0
                               `}
                               style={{
                                   backgroundColor: '#09090b', 
